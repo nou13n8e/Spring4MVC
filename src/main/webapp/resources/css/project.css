@@ -1,6 +1,5 @@
 #container {
     width: 960px;
-    border: 1px solid red;
     margin: 0 auto;
 }
 nav {
@@ -39,4 +38,33 @@ main {
 }
 .copy {
     text-align: center;
+}
+
+/* form */
+form {
+    width: 320px;
+    margin: 70px auto;
+}
+form div {
+    padding: 5px;
+}
+form label {
+    width: 110px;
+    font-weight: bold;
+    text-align: right;
+}
+form input {
+    padding: 5px;
+}
+
+/* info */
+.info {
+    width: 300px;
+    margin: 75px auto;
+    border-collapse: collapse;
+}
+.info td, .info th {
+    padding: 7px;
+}.info th {
+    text-align: right;
 }
