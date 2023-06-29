@@ -2,10 +2,12 @@ package controller;
 
 import nou.hello.spring4.controller.IndexController;
 import nou.hello.spring4.controller.MemberController;
+import nou.hello.spring4.model.Member;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -55,5 +57,19 @@ public class MemberControllerUnitTest {
                         .param("userid", "abc123")
                         .param("passwd", "987xyz"))
                 .andExpect(redirectedUrl("/member/info"));
+    }
+
+    @Test
+    public void infoTest() throws Exception {
+        // 모조 세션 객체를 생성하여 아이디를 저장
+        MockHttpSession sess=new MockHttpSession();
+        Member m=new Member();
+        m.setUserid("abc123");
+        sess.setAttribute("member", m);
+
+        MvcResult mvcResult=mockMvc.perform(get("/member/info").session(sess))
+                .andExpect(status().isOk())
+                .andReturn();
+        System.out.println(mvcResult.getModelAndView());
     }
 }
