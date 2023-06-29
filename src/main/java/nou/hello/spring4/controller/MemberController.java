@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class MemberController {
 
@@ -43,18 +45,21 @@ public class MemberController {
         return "member/login.tiles";
     }
     @RequestMapping(value = "/member/login", method = RequestMethod.POST)
-    public String loginok(Member m) {
+    public String loginok(Member m, HttpSession sess) {
         logger.info("member/loginok 호출!");
         String viewName="redirect:/member/loginfail";
         if(msrv.loginMember(m)) {
+            sess.setAttribute("member", m);
             viewName = "redirect:/member/info";
         };
         return viewName;
     }
     @RequestMapping("/member/info")
-    public String info(Model m) {
-
+    public String info(Model m, HttpSession sess) {
         logger.info("member/info 호출!");
+        String userid=
+                ((Member) sess.getAttribute("member")).getUserid();
+        m.addAttribute("member", msrv.readOneMember(userid));
 
         return "member/info.tiles";
     }
