@@ -23,4 +23,9 @@ public class MemberServiceImpl implements MemberService {
         if(mdao.loginMember(m) != null) isLogin=true;
         return isLogin;
     }
+
+    @Override
+    public Member readOneMember(String userid) {
+        return mdao.selectOneMember(userid);
+    }
 }
