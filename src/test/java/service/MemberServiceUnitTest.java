@@ -36,7 +36,9 @@ public class MemberServiceUnitTest {
     @Test
     @Transactional
     public void loginMember() throws Exception {
-        Member m=new Member(null, "abc123a", "987xyz", "abc123", "abc123@987xyz", null);
+        Member m=new Member();
+        m.setUserid("abc123a");
+        m.setPasswd("987xyz");
         assertEquals(msrv.loginMember(m), true);
     }
 }
