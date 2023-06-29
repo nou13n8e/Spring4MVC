@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
@@ -34,11 +35,17 @@ public class MemberServiceUnitTest {
     }
 
     @Test
-    @Transactional
     public void loginMember() throws Exception {
         Member m=new Member();
-        m.setUserid("abc123a");
+        m.setUserid("abc123");
         m.setPasswd("987xyz");
         assertEquals(msrv.loginMember(m), true);
     }
+
+    @Test
+    public void readOneMember() throws Exception {
+        String userid="abc123";
+        assertNotNull(msrv.readOneMember(userid));
+    }
+
 }
