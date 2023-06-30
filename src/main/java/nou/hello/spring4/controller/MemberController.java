@@ -74,4 +74,10 @@ public class MemberController {
         sess.invalidate();
         return "redirect:/";
     }
+
+    @RequestMapping("/member/loginfail")
+    public String loginfail() {
+        logger.info("member/loginfail 호출!");
+        return "member/loginfail.tiles";
+    }
 }
