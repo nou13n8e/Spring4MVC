@@ -69,3 +69,94 @@ form input {
 .info th {
     text-align: right;
 }
+
+/* board */
+.board {
+    width: 700px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.board td {
+    text-align: center;
+    padding: 7px;
+}
+.board td:nth-child(2), .board th:nth-child(2) {
+    text-align: left;
+
+}
+.board tr:nth-child(odd) {
+    background: #e4f7ba;
+}
+.board tr:nth-child(even) {
+    background: #cef279;
+}
+.board th {
+    padding: 7px;
+    background: lightgoldenrodyellow;
+    text-align: center;
+}
+
+.btnrgt {
+    text-align: right !important;
+}
+.alglft {
+    text-align: left !important;
+}
+.board select {
+    padding: 6px;
+}
+.board input {
+    padding: 5px;
+}
+
+/* pagenation */
+.pagenation {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin: 25px 0;
+}
+.pagenation li {
+    display: inline-block;
+    padding: 6px;
+}
+.cpage {
+    font: bold 32px '맑은 고딕';
+    color: red;
+
+}
+
+/* write */
+#writefrm {
+    width: 650px;
+}
+.drgup {
+    vertical-align: top;
+}
+.cptaalgn {
+    margin: -40px 0 5px 100px;
+}
+
+/* view */
+#view {
+    width: 650px;
+    margin: 75px auto;
+}
+#view div {
+    padding: 5px;
+}
+#view label {
+    width: 110px;
+    font-weight: bold;
+    text-align: right;
+}
+#contents, #view span {
+    border: 1px solid #eeeeee;
+    display: inline-block;
+    width: 400px;
+}
+#contents {
+    min-height: 350px;
+    white-space: pre;
+}
