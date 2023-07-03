@@ -1,10 +1,9 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%--세션 객체가 있을 경우 회원정보 페이지로 이동--%>
-<c:if test="${not empty sessionScope.member}">
-    <script>location.href="/member/info";</script>
-</c:if>
+<%-- 세션 객체가 있을 경우 회원정보 페이지로 이동 --%>
+<%-- <c:if test="${not empty sessionScope.member}">
+    <script>location.href="/member/info";</script></c:if> --%>
 
 <main>
     <h2>회원가입</h2>
