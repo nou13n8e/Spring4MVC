@@ -25,8 +25,8 @@ public class BoardController {
     public String list(Model m, int cpg) {
         logger.info("board/list 호출!");
         m.addAttribute("boards", bsrv.readBoard(cpg));
-//        m.addAttribute("psnum", );  //페이지네이션 시작할 번호(1, 11, 21)
-//        m.addAttribute("allpg", );  //페이지 총합을 구하는 함수를 이용
+        m.addAttribute("allpg", bsrv.countAllPage()); // 페이지 총합을 구하는 함수
+        m.addAttribute("psnum", 10*((cpg-1)/10)+1);  //페이지네이션 시작할 번호(1, 11, 21)
         return "board/list.tiles";
     }
     @GetMapping("/write")
