@@ -1,14 +1,12 @@
 package nou.hello.spring4.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @ToString
+@NoArgsConstructor
 public class Board {
     private String bno;
     private String title;
