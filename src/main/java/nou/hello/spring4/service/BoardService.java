@@ -8,4 +8,5 @@ public interface BoardService {
     List<Board> readBoard(int cpg);
 
     Board readOneBoard(String bno);
+    boolean saveBoard(Board bd);
 }
