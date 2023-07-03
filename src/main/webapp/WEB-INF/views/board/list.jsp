@@ -65,8 +65,9 @@
 
         </c:forEach>
 
+        <c:if test="${param.cpg + 1 lt allpg}">
             <li><a href="?cpg=${param.cpg + 1}">다음</a></li>
-
+        </c:if>
     </ul>
 </main>
 <script src="/assets/js/board.js"></script>
