@@ -18,6 +18,8 @@ public class BoardController {
     public String list(Model m, int cpg) {
         logger.info("board/list 호출!");
         m.addAttribute("boards", bsrv.readBoard(cpg));
+//        m.addAttribute("psnum", );  //페이지네이션 시작할 번호(1, 11, 21)
+//        m.addAttribute("allpg", );  //페이지 총합을 구하는 함수를 이용
 
         return "board/list.tiles";
     }
@@ -28,9 +30,9 @@ public class BoardController {
         return "board/write.tiles";
     }
     @GetMapping("/view")
-    public String view() {
+    public String view(Model m, String bno) {
         logger.info("board/view 호출!");
-
+        m.addAttribute("board", bsrv.readOneBoard(bno));
         return "board/view.tiles";
     }
 
