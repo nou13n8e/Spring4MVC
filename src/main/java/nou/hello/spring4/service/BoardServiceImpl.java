@@ -27,4 +27,9 @@ public class BoardServiceImpl implements BoardService {
         if(bdao.insertBoard(bd) > 0) isSaved=true;
         return isSaved;
     }
+
+    @Override
+    public int countAllPage() {
+        return bdao.countAllPage();
+    }
 }
