@@ -2,9 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%--세션 객체가 없을 경우 로그인 페이지로 이동--%>
-<c:if test="${empty sessionScope.member}">
-    <script>location.href="/member/login";</script>
-</c:if>
+<%-- <c:if test="${empty sessionScope.member}">
+    <script>location.href="/member/login";</script></c:if> --%>
 
 <main>
     <script src="https://www.google.com/recaptcha/api.js"></script>
