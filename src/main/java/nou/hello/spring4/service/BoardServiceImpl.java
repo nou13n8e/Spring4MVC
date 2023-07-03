@@ -15,4 +15,9 @@ public class BoardServiceImpl implements BoardService {
         int snum=(cpg-1)*15;
         return bdao.selectBoard(snum);
     }
+
+    @Override
+    public Board readOneBoard(String bno) {
+        return bdao.selectOneBoard(bno);
+    }
 }
