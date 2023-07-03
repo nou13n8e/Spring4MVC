@@ -38,6 +38,7 @@ public class BoardControllerUnitTest {
     public void listTest() throws Exception {
         MvcResult mvcResult=mockMvc.perform(get("/board/list")
                         .param("cpg", "1"))
+                .andExpect(model().attributeExists("allpg"))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -69,4 +70,6 @@ public class BoardControllerUnitTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/board/list"));
     }
+
+
 }
