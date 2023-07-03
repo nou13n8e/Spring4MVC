@@ -45,4 +45,8 @@ public class BoardServiceUnitTest {
         Board bd=new Board(null, "점심 뭐 먹을까요?", "abc123", null, null, "점심 뭐 먹을까요?");
         assertEquals(bsrv.saveBoard(bd), true);
     }
+    @Test
+    public void countAllPage() throws Exception {
+        assertNotNull(bsrv.countAllPage());
+    }
 }
