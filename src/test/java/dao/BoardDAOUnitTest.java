@@ -47,5 +47,10 @@ public class BoardDAOUnitTest {
         Board bd=new Board(null, "점심 뭐 먹을까요?", "abc123", null, null, "점심 뭐 먹을까요?");
         assertEquals(bdao.insertBoard(bd), 1);
     }
+
+    @Test
+    public void countAllPage() throws Exception {
+        assertNotNull(bdao.countAllPage());
+    }
 }
 
