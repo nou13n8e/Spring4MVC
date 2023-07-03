@@ -9,4 +9,5 @@ public interface BoardService {
 
     Board readOneBoard(String bno);
     boolean saveBoard(Board bd);
+    int countAllPage();
 }
