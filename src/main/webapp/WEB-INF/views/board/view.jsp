@@ -9,7 +9,7 @@
         <div><label>작성자</label>
             <span>${board.userid}</span></div>
         <div><label>작성일/조회수</label>
-            <span>${board.regdate}/${board.view}</span></div>
+            <span>${board.regdate}/${board.views}</span></div>
         <div><label class="drgup">본문</label>
             <span id="contents">${board.contents}</span></div>
 
