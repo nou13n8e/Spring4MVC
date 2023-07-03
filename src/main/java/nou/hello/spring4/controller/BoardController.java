@@ -30,7 +30,7 @@ public class BoardController {
         return "board/list.tiles";
     }
     @GetMapping("/write")
-    public String write() {
+    public String write(HttpSession sess) {
         logger.info("board/write 호출!");
         return "board/write.tiles";
     }
