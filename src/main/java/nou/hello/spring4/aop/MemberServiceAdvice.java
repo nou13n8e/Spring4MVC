@@ -21,6 +21,9 @@ public class MemberServiceAdvice {
     @Pointcut("execution(* nou.hello.spring4.controller.MemberController.join(..))")
     public void joinPoint() {
     }
+    @Pointcut("execution(* nou.hello.spring4.controller.BoardController.write(..))")
+    public void writePoint(){
+    }
     @Around("infoPoint()")
     public Object infoAOPProcess(ProceedingJoinPoint pjp) throws Throwable {
         logger.info("infoAOPProcess 호출!");
@@ -51,6 +54,23 @@ public class MemberServiceAdvice {
         // pointcut 대상 메서드 실행
         // 로그인 하지 않았다면 join으로 이동, 로그인 했다면 info로 이동
         if(sess.getAttribute("member") != null) return "redirect:/member/info";
+
+        Object obj=pjp.proceed();
+        return obj;
+    }
+    @Around("writePoint()")
+    public Object writeAOPProcess(ProceedingJoinPoint pjp) throws Throwable {
+        logger.info("writeAOPProcess 호출!");
+        HttpSession sess=null;
+
+        for(Object o : pjp.getArgs()) {
+            if(o instanceof HttpSession)
+                sess=(HttpSession) o;
+        }
+
+        // pointcut 대상 메서드 실행
+        // 로그인 하지 않았다면 write으로 이동, 로그인 했다면 login로 이동
+        if(sess.getAttribute("member") == null) return "redirect:/member/login";
 
         Object obj=pjp.proceed();
         return obj;
