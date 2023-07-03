@@ -10,4 +10,6 @@ public interface BoardDAO {
     List<Board> selectBoard(int snum);
     Board selectOneBoard(String bno);
     int insertBoard(Board bd);
+
+    int countAllPage();
 }

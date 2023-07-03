@@ -17,6 +17,7 @@ public class BoardDAOImpl implements BoardDAO {
     @Value("#{sql['selectOneBoard']}") private String selectOneSQL;
     @Value("#{sql['viewCountBoard']}") private String viewCountSQL;
     @Value("#{sql['insertBoard']}") private String insertSQL;
+    @Value("#{sql['countAllPage']}") private String countSQL;
 
 
     @Autowired JdbcTemplate jdbcTemplate;
@@ -48,6 +49,11 @@ public class BoardDAOImpl implements BoardDAO {
                 bd.getTitle(), bd.getUserid(), bd.getContents()
         };
         return jdbcTemplate.update(insertSQL, params);
+    }
+
+    @Override
+    public int countAllPage() {
+        return jdbcTemplate.queryForObject(countSQL, Integer.class);
     }
 
     private class SelectMapper implements RowMapper<Board> {
