@@ -29,7 +29,7 @@ public class BoardServiceAdvice {
         }
 
         // pointcut 대상 메서드 실행
-        // 로그인 하지 않았다면 write으로 이동, 로그인 했다면 login로 이동
+        // 로그인 하지 않았다면 login으로 이동, 로그인 했다면 write로 이동
         if(sess.getAttribute("member") == null) return "redirect:/member/login";
 
         Object obj=pjp.proceed();
